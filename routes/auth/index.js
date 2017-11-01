@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 router.post('/login', controller.checkBody, function(req, res, next) {
   res.send({
   	username: req.body.username,
-  	message: req.message
+  	message: req.message,
+  	token: req.token
   })
 });
 

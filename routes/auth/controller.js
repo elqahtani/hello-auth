@@ -1,6 +1,13 @@
+const DATA_USERS = require("../api/users/data.json")
+
 const checkBody = (req, res, next) => {
-	if (req.body.username) console.log("username:", req.body.username)
-		else req.message = "USERNAME IS NOT PROVIDED"
+	const username = req.body.username
+	
+	if (username) {
+		DATA_USERS.map (user => {
+			if (username === user.username) req.token = "TOKEN_DUMMY";
+		})
+	} else req.message = "USERNAME IS NOT PROVIDED"
 	next()
 }
 
