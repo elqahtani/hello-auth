@@ -12,13 +12,15 @@ router.get('/', function(req, res, next) {
 
 router.post('/login', controller.checkBody, function(req, res, next) {
   res.send({
-  	username: req.body.username
+  	username: req.body.username,
+  	message: req.message
   })
 });
 
 router.get('/check', controller.checkToken, function(req, res, next) {
   res.send({
-  	token: req.headers.authorization
+  	token: req.headers.authorization,
+  	message: req.message
   })
 });
 
