@@ -9,14 +9,10 @@ const index = require("./routes")
 const api = require("./routes/api")
 const users = require("./routes/api/users")
 const secrets = require("./routes/api/secrets")
+const auth = require("./routes/auth")
+
 
 var app = express();
-
-
-app.use('/', index)
-app.use('/api', api)
-app.use('/api/users', users)
-app.use('/api/secrets', secrets)
 
 
 // view engine setup
@@ -32,7 +28,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+//=====================================
+app.use('/', index)
+app.use('/api', api)
+app.use('/api/users', users)
+app.use('/api/secrets', secrets)
+app.use('/auth', auth)
+//=====================================
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
